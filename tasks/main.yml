@@ -1,0 +1,9 @@
+---
+# tasks file for git
+
+ - name: install git apt
+   apt: name=git update_cache=yes cache_valid_time=3600
+   become: True
+
+ - name: check out the repository on the host
+   git: repo={{ repo_url }} dest={{ repo_dest }} accept_hostkey=yes
